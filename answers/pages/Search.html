@@ -1,0 +1,59 @@
+<!-- htmlhint attr-lowercase:false -->
+<div>
+    <NavBar><h1 slot="title">Movie Search</h1></NavBar>
+    <Container>
+        <div class="left" slot="left">
+            <SearchForm doSearch="{doSearch}" />
+        </div>
+        <div class="right" slot="right">
+            <SearchResults movies="{movies}" />
+        </div>
+    </Container>
+</div>
+<script>
+    import NavBar from '../components/NavBar.html'
+    import Container from '../components/Container.html'
+    import SearchForm from '../components/SearchForm.html'
+    import SearchResults from '../components/SearchResults.html'
+
+    const url = "https://movie-search.twilson63.sh"
+
+    let movies = []
+
+    function doSearch(q='') {
+        fetch(`${url}?s=${q}`, { method: 'POST'})
+            .then(res => res.json())
+            .then(result => {
+                if (!result.Search) {
+                    alert('No Movies found! Try again.')
+                    return movies = []
+
+                }
+                movies = result.Search
+            })
+            .catch(err => {
+                console.log(err.message)
+
+                alert('No Movies Found')
+            })
+    }
+
+</script>
+<style>
+    .left {
+        margin: 1rem;
+    }
+    .right {
+        margin: 1rem;
+    }
+    div {
+        margin: 0;
+        height: 100vh;
+    }
+    h1 {
+        color: #fff;
+    }
+    form {
+        padding-top: 7rem;
+    }
+</style>

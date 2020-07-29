@@ -1,0 +1,27 @@
+<!-- htmlhint tagname-lowercase:false -->
+<!-- Search Container -->
+<script>
+    import SearchCard from './SearchCard.html'
+
+    export let movies = []
+</script>
+<article>
+    {#if movies.length > 0}
+    {#each movies as movie}
+    <SearchCard
+            title="{movie.Title}"
+            year="{movie.Year}"
+            poster="{movie.Poster}"
+    />
+    {/each}
+    {:else}
+    <div>No Movies...</div>
+    {/if}
+</article>
+<style>
+    article {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+</style>

@@ -1,0 +1,66 @@
+<script>
+    export let items = []
+
+</script>
+<header>
+    <slot name="title"></slot>
+    <nav>
+        {#if items.length > 0}
+        {#each items as item}
+        <a href={item.href} title={item.value}>{item.value}</a>
+        {/each}
+        {/if}
+    </nav>
+</header>
+<style>
+    h1 {
+        color: #fff;
+        margin-left: 1rem;
+    }
+
+    header {
+        margin: 0;
+        background-color: rgba(0, 0, 0, .9);
+        /* position: fixed; */
+        width: 100%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: space-between;
+        justify-content: center;
+    }
+
+    nav {
+        font-size: .875rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .1em;
+    }
+
+    a {
+        text-decoration: none;
+        transition: color .15s ease-in;
+        color: #fff;
+        display: inline-block;
+        margin-right: 1rem;
+    }
+
+    a:link, a:visited {
+        transition: color .15s ease-in;
+    }
+
+    a:hover {
+        transition: color .15s ease-in;
+    }
+
+    a:active {
+        transition: color .15s ease-in;
+    }
+
+    a:focus {
+        transition: color .15s ease-in;
+        outline: 1px dotted currentColor;
+    }
+
+</style>
+
