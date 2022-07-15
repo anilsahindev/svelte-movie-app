@@ -14,7 +14,7 @@
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "rollup-plugin-svelte": "^5.0.3",
-    "svelte": "^3.0.0-beta.7"
+    "svelte": "^3.49.0"
   },
   "dependencies": {
     "w3": "^1.0.0"
